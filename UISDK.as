@@ -53,14 +53,14 @@
             _config = new Config(root.loaderInfo.parameters);
             _dispatcher = new EventDispatcher();
             addChild(HideShowDelegate.getInstance());
-            if (!checkH264Compatibility(9, 115))
-            {
-                addChild(new NoticePanelEx(new NoticePanel()));
-                tvie_tracer("falsh player version must be greate than or equal to 9.0.115.0");
-                eDispather.dispatchEvent(new TVieEvent(UIEvent.UI_NOTICE, Lang.INVALID_VERSION));
-                eDispather.dispatchEvent(new TVieEvent(UIEvent.UI_RESIZE, null));
-                return;
-            }
+//            if (!checkH264Compatibility(9, 115))
+//            {
+//                addChild(new NoticePanelEx(new NoticePanel()));
+//                tvie_tracer("falsh player version must be greate than or equal to 9.0.115.0");
+//                eDispather.dispatchEvent(new TVieEvent(UIEvent.UI_NOTICE, Lang.INVALID_VERSION));
+//                eDispather.dispatchEvent(new TVieEvent(UIEvent.UI_RESIZE, null));
+//                return;
+//            }
             uiCreator = new SmgbbLiveUICreator();
             uiCreator.doStuff(_panelArr);
             mountPanels();
