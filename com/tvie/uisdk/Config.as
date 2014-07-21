@@ -130,8 +130,7 @@
             var _loc_3:String = null;
             for (_loc_3 in playerWidth)
             {
-                
-                playerWidth[_loc_3] = playerWidth[_loc_3];
+				params[_loc_3] = playerWidth[_loc_3];
             }
             return;
         }// end function

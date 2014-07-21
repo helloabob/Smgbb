@@ -1,6 +1,6 @@
 ﻿package com.tvie.uisdk
 {
-    import com.tvie.utils.*;
+    import com.tvie.utils.Comm;
 
     public class Creator extends Object
     {

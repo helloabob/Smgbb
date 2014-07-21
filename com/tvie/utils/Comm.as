@@ -1,7 +1,12 @@
 ﻿package com.tvie.utils
 {
-    import flash.events.*;
-    import flash.net.*;
+    import flash.events.Event;
+    import flash.events.IOErrorEvent;
+    import flash.events.SecurityErrorEvent;
+    import flash.external.ExternalInterface;
+    import flash.net.URLLoader;
+    import flash.net.URLRequest;
+    import flash.net.URLRequestMethod;
 
     public class Comm extends Object
     {
@@ -18,18 +23,23 @@
             return _loader;
         }// end function
 
-        public function sendreq(load:String, load:Function, load:Function, load:String = "GET") : void
+		public static function tvie_tracer(param:String):void{
+			trace(param);
+			flash.external.ExternalInterface.call("console.log",param);
+		}
+		
+        public function sendreq(param1:String, param2:Function, param3:Function, param4:String = "GET") : void
         {
-            var _loc_5:* = new URLRequest(load);
-            if (load == "POST")
+            var _loc_5:* = new URLRequest(param1);
+            if (param4 == "POST")
             {
                 _loc_5.method = URLRequestMethod.POST;
             }
             loader.load(_loc_5);
-            loader.addEventListener(Event.COMPLETE, load);
-            loader.addEventListener(IOErrorEvent.IO_ERROR, load);
-            loader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, load);
-            tvie_tracer("load request: " + load);
+            loader.addEventListener(Event.COMPLETE, param2);
+            loader.addEventListener(IOErrorEvent.IO_ERROR, param3);
+            loader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, param3);
+            tvie_tracer("load request: " + param1);
             return;
         }// end function
 
