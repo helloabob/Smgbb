@@ -28,10 +28,10 @@
             return;
         }// end function
 
-        public function addCallBack(addCallback:String, addCallback:Function) : void
+        public function addCallBack(addCallback:String, func:Function) : void
         {
             var fnName:* = addCallback;
-            var fn:* = addCallback;
+            var fn:* = func;
             try
             {
                 if (ExternalInterface.available)

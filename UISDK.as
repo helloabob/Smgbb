@@ -1,15 +1,27 @@
 ﻿package 
 {
-    import UISDK.*;
-    import com.smgbb.*;
-    import com.smgbbv2.*;
-    import com.tvie.*;
-    import com.tvie.uisdk.*;
-    import com.tvie.utilities.*;
-    import com.tvie.utils.*;
-    import flash.display.*;
-    import flash.events.*;
-    import flash.system.*;
+    import com.smgbb.SmgbbCommand;
+    import com.smgbbv2.SmgbbLiveUICreator;
+    import com.tvie.PlayerCommands;
+    import com.tvie.PlayerProperties;
+    import com.tvie.uisdk.Config;
+    import com.tvie.uisdk.Creator;
+    import com.tvie.uisdk.JSMgr;
+    import com.tvie.uisdk.Panel;
+    import com.tvie.uisdk.PlayerPanelEx;
+    import com.tvie.uisdk.UIEvent;
+    import com.tvie.uisdk.VODPlayerPanelEx;
+    import com.tvie.utilities.TVieEvent;
+    import com.tvie.utils.HideShowDelegate;
+    import com.tvie.utils.externalCall;
+    
+    import flash.display.Sprite;
+    import flash.display.StageAlign;
+    import flash.display.StageScaleMode;
+    import flash.events.Event;
+    import flash.events.EventDispatcher;
+    import flash.events.FullScreenEvent;
+    import flash.system.Security;
 
     public class UISDK extends Sprite implements externalCall
     {
@@ -134,7 +146,7 @@
             return;
         }// end function
 
-        public function sendUICommand(dispatchEvent:String, dispatchEvent = null) : Number
+        public function sendUICommand(dispatchEvent:String, func:* = null) : Number
         {
             var _loc_4:Function = null;
             var _loc_5:Number = NaN;
@@ -156,7 +168,7 @@
                 }
                 case SmgbbCommand.UI_COMMAND_SET_SOUND:
                 {
-                    _loc_5 = Number(dispatchEvent);
+                    _loc_5 = Number(func);
                     eDispather.dispatchEvent(new TVieEvent(UIEvent.UI_SET_VOLUME, _loc_5));
                     break;
                 }
@@ -167,15 +179,15 @@
                 }
                 case SmgbbCommand.UI_COMMAND_PLAY:
                 {
-                    _loc_6 = Number(dispatchEvent.cid);
-                    _loc_7 = Number(dispatchEvent.timeStamp);
-                    if (dispatchEvent.datarate == undefined)
+                    _loc_6 = Number(func.cid);
+                    _loc_7 = Number(func.timeStamp);
+                    if (func.datarate == undefined)
                     {
                         _loc_8 = 0;
                     }
                     else
                     {
-                        _loc_8 = Number(dispatchEvent.datarate);
+                        _loc_8 = Number(func.datarate);
                     }
                     (getPanel(PlayerPanelEx) as PlayerPanelEx).timeStampPlay(_loc_6, _loc_7, _loc_8);
                     break;
@@ -187,13 +199,13 @@
                 }
                 case SmgbbCommand.UI_COMMAND_REGISTER_PLAYER_STATE:
                 {
-                    _loc_4 = dispatchEvent;
+                    _loc_4 = func;
                     eDispather.addEventListener(UIEvent.UI_PLAYER_STATE, _loc_4);
                     break;
                 }
                 case SmgbbCommand.UI_COMMAND_UNREGISTER_PLAYER_STATE:
                 {
-                    _loc_4 = dispatchEvent;
+                    _loc_4 = func;
                     eDispather.removeEventListener(UIEvent.UI_PLAYER_STATE, _loc_4);
                     break;
                 }

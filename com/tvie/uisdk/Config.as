@@ -1,6 +1,6 @@
 ﻿package com.tvie.uisdk
 {
-    import com.tvie.utils.*;
+    import com.tvie.utils.Comm;
 
     public class Config extends Object
     {
@@ -16,7 +16,8 @@
             params["id"] = 210;
             params["datarate"] = 0;
             params["starttime"] = 1245305330;
-            params["endtime"] = tvie_time() + 5 * 60;
+//            params["endtime"] = tvie_time() + 5 * 60;
+			params["endtime"] = 1245305330 + 5 * 60;
             params["autostart"] = false;
             params["days"] = 2;
             params["timeOffset"] = 0;
@@ -62,7 +63,7 @@
             for (_loc_2 in playerWidth)
             {
                 
-                tvie_tracer(_loc_2 + ": " + playerWidth[_loc_2]);
+                Comm.tvie_tracer(_loc_2 + ": " + playerWidth[_loc_2]);
             }
             return;
         }// end function
