@@ -12,14 +12,14 @@
 
         public function doStuff(panelArray:Array) : void
         {
-            var _loc_2:* = this.factoryMethod();
+            var _loc_2:IUIProduct = this.factoryMethod();
             _loc_2.manipulate(panelArray);
             return;
         }// end function
 
         public function factoryMethod() : IUIProduct
         {
-            tvie_tracer("nothing to do here factoryMethod@Creator");
+            Comm.tvie_tracer("nothing to do here factoryMethod@Creator");
             return null;
         }// end function
 
