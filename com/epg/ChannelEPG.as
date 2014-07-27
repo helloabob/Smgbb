@@ -1,6 +1,8 @@
 ﻿package com.epg
 {
-    import com.tvie.utils.*;
+	import com.epg.Channel;
+	import com.tvie.utils.Comm;
+    
 
     public class ChannelEPG extends Object
     {
@@ -12,14 +14,14 @@
         private var _cursor:Number;
         private var _totalStart:Number;
 
-        public function ChannelEPG(D:\ASS\uisdk_refactor1;com\epg;ChannelEPG.as:Channel, D:\ASS\uisdk_refactor1;com\epg;ChannelEPG.as:Array = null) : void
+        public function ChannelEPG(param1:Channel, param2:Array) : void
         {
-            this.channel = D:\ASS\uisdk_refactor1;com\epg;ChannelEPG.as;
-            this.progArray = D:\ASS\uisdk_refactor1;com\epg;ChannelEPG.as;
+            this.channel = param1;
+            this.progArray = param2;
             return;
         }// end function
 
-        public function setCursorByTime(com.epg:ChannelEPG/curProg/get:Number) : Boolean
+        public function setCursorByTime(param:Number) : Boolean
         {
             var _loc_2:String = null;
             var _loc_3:Program = null;
@@ -27,7 +29,7 @@
             {
                 
                 _loc_3 = _progArray[_loc_2] as Program;
-                if (com.epg:ChannelEPG/curProg/get >= _loc_3.startTime && com.epg:ChannelEPG/curProg/get < _loc_3.endTime)
+                if (param >= _loc_3.startTime && param < _loc_3.endTime)
                 {
                     if (Number(_loc_2) == 70)
                     {
@@ -36,31 +38,29 @@
                     return true;
                 }
             }
-            tvie_tracer("can not find program by time: " + com.epg:ChannelEPG/curProg/get + " setCursorByTime@ChannelEPG");
+            com.tvie.utils.Comm.tvie_tracer("can not find program by time: " + param + " setCursorByTime@ChannelEPG");
             return false;
-        }// end function
+        }
 
-        public function set channel(D:\ASS\uisdk_refactor1;com\epg;ChannelEPG.as:Channel) : void
+
+// end function
+
+        public function set channel(param:Channel) : void
         {
-            _channel = D:\ASS\uisdk_refactor1;com\epg;ChannelEPG.as;
+            _channel = param;
             return;
         }// end function
 
-        public function set progArray(D:\ASS\uisdk_refactor1;com\epg;ChannelEPG.as:Object) : void
+        public function set progArray(param:Object) : void
         {
             _progArray = null;
-            _progArray = D:\ASS\uisdk_refactor1;com\epg;ChannelEPG.as;
+            _progArray = param;
             return;
         }// end function
 
-        public function get channel() : Channel
+        public function get channel():Channel
         {
             return _channel;
-        }// end function
-
-        public function get cursor() : int
-        {
-            return _cursor;
         }// end function
 
         public function get realEPG() : Boolean
@@ -110,7 +110,7 @@
             return _progArray;
         }// end function
 
-        public function getProgByTime(com.epg:Number) : Program
+        public function getProgByTime(param:Number) : Program
         {
             var _loc_2:String = null;
             var _loc_3:Program = null;
@@ -118,12 +118,12 @@
             {
                 
                 _loc_3 = _progArray[_loc_2] as Program;
-                if (com.epg > _loc_3.startTime && com.epg < _loc_3.endTime)
+                if (_cursor > _loc_3.startTime && _cursor < _loc_3.endTime)
                 {
                     return _loc_3;
                 }
             }
-            tvie_tracer("can not find demand program by time:" + com.epg + "getProgByTime@ChannelEPG");
+            com.tvie.utils.Comm.tvie_tracer("can not find demand program by time:" + _cursor + "getProgByTime@ChannelEPG");
             return null;
         }// end function
 
@@ -132,9 +132,14 @@
             return _progArray[cursor] as Program;
         }// end function
 
-        public function set cursor(D:\ASS\uisdk_refactor1;com\epg;ChannelEPG.as:int) : void
+		public function get cursor():Number
+		{
+			return _cursor;
+		}
+		
+        public function set cursor(param:Number) : void
         {
-            _cursor = D:\ASS\uisdk_refactor1;com\epg;ChannelEPG.as;
+            _cursor = param;
             if (_cursor < 0)
             {
             }
@@ -144,9 +149,9 @@
             return;
         }// end function
 
-        public function set realEPG(D:\ASS\uisdk_refactor1;com\epg;ChannelEPG.as:Boolean) : void
+        public function set realEPG(param:Boolean) : void
         {
-            _realEPG = D:\ASS\uisdk_refactor1;com\epg;ChannelEPG.as;
+            _realEPG = param;
             return;
         }// end function
 

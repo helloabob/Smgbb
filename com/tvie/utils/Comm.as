@@ -28,6 +28,15 @@
 			flash.external.ExternalInterface.call("console.log",param);
 		}
 		
+		public static function tvie_equalObj(param1:Object, param2:Object):Boolean{
+			if(param1==param2)return true;
+			return false;
+		}
+		
+		public static function tvie_time():Number{
+			return Number(new Date());
+		}
+		
         public function sendreq(param1:String, param2:Function, param3:Function, param4:String = "GET") : void
         {
             var _loc_5:* = new URLRequest(param1);

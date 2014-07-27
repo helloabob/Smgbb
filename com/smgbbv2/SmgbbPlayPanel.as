@@ -3,6 +3,10 @@
     import flash.display.*;
     import flash.text.*;
 
+	/**
+	 * smgbb tool bar
+	 * 
+	 */
     dynamic public class SmgbbPlayPanel extends MovieClip
     {
         public var posTime:TextField;

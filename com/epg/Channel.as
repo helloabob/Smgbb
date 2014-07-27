@@ -6,10 +6,10 @@
         private var channelName:String;
         private var channelID:uint;
 
-        public function Channel(D:\ASS\uisdk_refactor1;com\epg;Channel.as:uint, D:\ASS\uisdk_refactor1;com\epg;Channel.as:String) : void
+        public function Channel(param1:uint, param2:String) : void
         {
-            channelID = D:\ASS\uisdk_refactor1;com\epg;Channel.as;
-            channelName = D:\ASS\uisdk_refactor1;com\epg;Channel.as;
+            channelID = param1;
+            channelName = param2;
             return;
         }// end function
 

@@ -11,15 +11,15 @@
             return;
         }// end function
 
-        public static function sendreq(com.tvie.utilities:String, com.tvie.utilities:Function, com.tvie.utilities:Function, com.tvie.utilities:String = "GET", com.tvie.utilities:URLVariables = null) : void
+        public static function sendreq(param1:String, func1:Function, func2:Function, param2:String = "GET", param3:URLVariables = null) : void
         {
-            var _loc_6:* = new URLRequest(com.tvie.utilities);
-            if (com.tvie.utilities == "POST")
+            var _loc_6:* = new URLRequest(param1);
+            if (param2 == "POST")
             {
-                if (com.tvie.utilities != null)
+                if (param3 != null)
                 {
                     _loc_6.method = URLRequestMethod.POST;
-                    _loc_6.data = com.tvie.utilities;
+                    _loc_6.data = param2;
                 }
                 else
                 {
@@ -28,10 +28,10 @@
             }
             var _loc_7:* = new URLLoader();
             _loc_7.load(_loc_6);
-            _loc_7.addEventListener(Event.COMPLETE, com.tvie.utilities);
-            _loc_7.addEventListener(IOErrorEvent.IO_ERROR, com.tvie.utilities);
-            _loc_7.addEventListener(SecurityErrorEvent.SECURITY_ERROR, com.tvie.utilities);
-            Logger.print("Send Request To " + com.tvie.utilities);
+            _loc_7.addEventListener(Event.COMPLETE, func1);
+            _loc_7.addEventListener(IOErrorEvent.IO_ERROR, func2);
+            _loc_7.addEventListener(SecurityErrorEvent.SECURITY_ERROR, param2);
+            Logger.print("Send Request To " + param1);
             return;
         }// end function
 

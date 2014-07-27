@@ -25,22 +25,22 @@
             return;
         }// end function
 
-        override public function handleCommand(para:String, para:Object = ) : void
+        override public function handleCommand(para:String, param2:Object = null) : void
         {
             switch(para)
             {
                 case PlayerCommands.COMMAND_GETCDNINFO:
                 {
-                    getCDNInfo(para);
+                    getCDNInfo(param2);
                     break;
                 }
                 case PlayerCommands.COMMAND_DATARATE:
                 {
-                    setDataRate(para);
+                    setDataRate(param2);
                 }
                 default:
                 {
-                    super.handleCommand(para, para);
+                    super.handleCommand(para, param2);
                     break;
                     break;
                 }

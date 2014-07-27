@@ -1,10 +1,16 @@
 ﻿package com.smgbbv2
 {
-    import com.epg.*;
-    import com.tvie.uisdk.*;
-    import com.tvie.utilities.*;
-    import com.tvie.utils.*;
-    import flash.display.*;
+    import com.epg.ChannelsLoader;
+    import com.epg.EPGDataCenter;
+    import com.epg.ProgramLoader;
+    import com.tvie.uisdk.EPGPanelEx;
+    import com.tvie.uisdk.UIEvent;
+    import com.tvie.utilities.TVieEvent;
+    import com.tvie.utils.Comm;
+    import com.tvie.utils.Lang;
+    import com.tvie.utils.RequestType;
+    
+    import flash.display.Sprite;
 
     public class SmgbbEPGPanelEx extends EPGPanelEx
     {
@@ -34,7 +40,7 @@
                 {
                     if (!_loc_2.setCursorByTime(_timeStamp))
                     {
-                        tvie_tracer("can not find program by specified time:" + _timeStamp + " play first program");
+//                        tvie_tracer("can not find program by specified time:" + _timeStamp + " play first program");
                         _loc_2.cursor = 0;
                         _timeStamp = _loc_2.curProg.startTime;
                     }
@@ -46,7 +52,7 @@
 
         override protected function onLoadChannelEPGHandler(event:TVieEvent) : void
         {
-            var _loc_2:ChannelEPG = null;
+            var _loc_2:* = null;
             var _loc_3:Number = NaN;
             if (EPGDataCenter.getInstance().curChannelEPG == null)
             {
@@ -57,7 +63,7 @@
                 _loc_2 = EPGDataCenter.getInstance().curChannelEPG;
                 if (_timeStamp == 0)
                 {
-                    _loc_3 = tvie_time() + UISDK.config.Params["timeOffset"];
+                    _loc_3 = com.tvie.utils.Comm.tvie_time() + UISDK.config.Params["timeOffset"];
                 }
                 else
                 {
@@ -94,14 +100,15 @@
 
         override protected function get sole() : Object
         {
-            return component as EPGPanel;
+//            return component as EPGPanel;
+			return component;
         }// end function
 
         override protected function onSelectPlayHandler(event:TVieEvent) : void
         {
             var _loc_5:String = null;
             var _loc_2:* = EPGDataCenter.getInstance().curChannelEPG.curProg;
-            var _loc_3:* = tvie_time() + UISDK.config.Params["timeOffset"];
+            var _loc_3:* = com.tvie.utils.Comm.tvie_time() + UISDK.config.Params["timeOffset"];
             var _loc_4:* = new Object();
             if (canPlayerAcceptReq())
             {

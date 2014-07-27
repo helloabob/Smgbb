@@ -47,53 +47,53 @@
             return;
         }// end function
 
-        public function handleCommand(COMMAND_PAUSE:String, COMMAND_PAUSE:Object = ) : void
+        public function handleCommand(param1:String, param2:Object = null) : void
         {
-            switch(COMMAND_PAUSE)
+            switch(param1)
             {
                 case PlayerCommands.COMMAND_PLAY:
                 {
-                    play(COMMAND_PAUSE);
+                    play(param2);
                     break;
                 }
                 case PlayerCommands.COMMAND_PAUSE:
                 {
-                    pause(COMMAND_PAUSE);
+                    pause(param2);
                     break;
                 }
                 case PlayerCommands.COMMAND_RESUME:
                 {
-                    resume(COMMAND_PAUSE);
+                    resume(param2);
                     break;
                 }
                 case PlayerCommands.COMMAND_SEEK:
                 {
-                    seek(COMMAND_PAUSE);
+                    seek(param2);
                     break;
                 }
                 case PlayerCommands.COMMAND_SOUND_ON:
                 {
-                    soundOn(COMMAND_PAUSE);
+                    soundOn(param2);
                     break;
                 }
                 case PlayerCommands.COMMAND_SOUND_OFF:
                 {
-                    soundOff(COMMAND_PAUSE);
+                    soundOff(param2);
                     break;
                 }
                 case PlayerCommands.COMMAND_VOLUME:
                 {
-                    setVolume(COMMAND_PAUSE);
+                    setVolume(param2);
                     break;
                 }
                 case PlayerCommands.COMMAND_STARTPAUSE:
                 {
-                    startPause = Boolean(COMMAND_PAUSE);
+                    startPause = Boolean(param2);
                     break;
                 }
                 case PlayerCommands.COMMAND_STOP:
                 {
-                    stop(COMMAND_PAUSE);
+                    stop(param2);
                 }
                 default:
                 {

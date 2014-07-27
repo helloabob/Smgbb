@@ -1,9 +1,7 @@
 ﻿package com.epg
 {
-    import EPGDataCenter.as$0.*;
-    import com.tvie.uisdk.*;
-    import com.tvie.utilities.*;
-    import com.tvie.utils.*;
+    import com.tvie.uisdk.UIEvent;
+    import com.tvie.utilities.TVieEvent;
 
     public class EPGDataCenter extends Object
     {
@@ -20,29 +18,29 @@
             return;
         }// end function
 
-        public function queryProgramByTime(PrivateClass:Number = -1, PrivateClass:Number = -1) : Object
+        public function queryProgramByTime(param1:Number = -1, param2:Number = -1) : Object
         {
             var _loc_3:Program = null;
             var _loc_4:Object = null;
-            if (PrivateClass == DEFAULT)
-            {
-                PrivateClass = _cid;
-            }
-            if (PrivateClass == DEFAULT)
-            {
-                PrivateClass = tvie_time();
-            }
-            if (_channelEPGPool[PrivateClass] == undefined)
-            {
-                tvie_tracer("channel:" + PrivateClass + " epg is no available, queryProgramByTime@EPGDataCenter");
-                return null;
-            }
-            if (PrivateClass < _channelEPGPool[PrivateClass].totalStartTime || PrivateClass > _channelEPGPool[PrivateClass].totalEndTime)
-            {
-                tvie_tracer("time: " + PrivateClass + "is no invalid, queryProgramByTime@EPGDataCenter");
-                return null;
-            }
-            _loc_3 = _channelEPGPool[PrivateClass].getProgByTime(PrivateClass);
+//            if (param1 == DEFAULT)
+//            {
+//                param2 = _cid;
+//            }
+//            if (param1 == DEFAULT)
+//            {
+//				param2 = com.tvie.utils.Comm.tvie_time();
+//            }
+//            if (_channelEPGPool[PrivateClass] == undefined)
+//            {
+//				com.tvie.utils.Comm.tvie_tracer("channel:" + param2 + " epg is no available, queryProgramByTime@EPGDataCenter");
+//                return null;
+//            }
+//            if (PrivateClass < _channelEPGPool[PrivateClass].totalStartTime || PrivateClass > _channelEPGPool[PrivateClass].totalEndTime)
+//            {
+//				com.tvie.utils.Comm.tvie_tracer("time: " + param1 + "is no invalid, queryProgramByTime@EPGDataCenter");
+//                return null;
+//            }
+            _loc_3 = _channelEPGPool[param1].getProgByTime(param2);
             _loc_4 = new Object();
             _loc_4.ProgramID = _loc_3.index;
             _loc_4.Title = _loc_3.name;
@@ -104,3 +102,4 @@
 
     }
 }
+final class PrivateClass{}

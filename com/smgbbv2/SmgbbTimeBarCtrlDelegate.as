@@ -14,28 +14,28 @@
             return;
         }// end function
 
-        override protected function playingText(com.smgbbv2:Number, com.smgbbv2:Number) : void
+        override protected function playingText(param1:Number, param2:Number) : void
         {
-            _playingTime.text = formatTime(com.smgbbv2);
-            _durationTime.text = formatTime(com.smgbbv2);
+            _playingTime.text = formatTime(param1);
+            _durationTime.text = formatTime(param2);
             return;
         }// end function
 
-        override protected function initUI(com.smgbbv2:MovieClip, com.smgbbv2:TextField, com.smgbbv2:TextField) : void
+        override protected function initUI(param1:MovieClip, param2:TextField, param3:TextField) : void
         {
-            _timeBar = com.smgbbv2;
+            _timeBar = param1;
             _timeLine = _timeBar.timeLine;
             _buffLine = _timeBar.bufferingLine;
             _liveTime = _timeBar.liveTime;
             _playedLine = _timeBar.playedLine;
             _seekSuite = _timeBar.seekSuite;
             _seekButton = _seekSuite.seekButton;
-            _playingTime = com.smgbbv2;
-            _durationTime = com.smgbbv2;
+            _playingTime = param2;
+            _durationTime = param3;
             return;
         }// end function
 
-        override protected function absTime(com.smgbbv2:Number) : void
+        override protected function absTime(param:Number) : void
         {
             return;
         }// end function

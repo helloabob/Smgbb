@@ -34,23 +34,23 @@
             return _api_site;
         }// end function
 
-        public function sendPlayerCommand(parseInitInfo:String, parseInitInfo:Object = ) : void
+        public function sendPlayerCommand(parseInitInfo:String, param2:Object = null) : void
         {
             switch(parseInitInfo)
             {
                 case PlayerCommands.COMMAND_CHANGE_MODE:
                 {
-                    changeMode(parseInitInfo);
+                    changeMode(param2);
                     break;
                 }
                 case PlayerCommands.COMMAND_CHANGE_APISITE:
                 {
-                    _api_site = String(parseInitInfo);
+                    _api_site = String(param2);
                     break;
                 }
                 default:
                 {
-                    _model.handleCommand(parseInitInfo, parseInitInfo);
+                    _model.handleCommand(parseInitInfo, param2);
                     break;
                     break;
                 }
@@ -64,9 +64,9 @@
             return;
         }// end function
 
-        public function addPlayerEventListener(parseInitInfo:String, parseInitInfo:Function) : void
+        public function addPlayerEventListener(parseInitInfo:String, func:Function) : void
         {
-            _dispatcher.addEventListener(parseInitInfo, parseInitInfo);
+            _dispatcher.addEventListener(parseInitInfo, func);
             return;
         }// end function
 
@@ -75,15 +75,15 @@
             return _dispatcher;
         }// end function
 
-        public function removePlayerEventListener(parseInitInfo:String, parseInitInfo:Function) : void
+        public function removePlayerEventListener(parseInitInfo:String, func:Function) : void
         {
-            _dispatcher.removeEventListener(parseInitInfo, parseInitInfo);
+            _dispatcher.removeEventListener(parseInitInfo, func);
             return;
         }// end function
 
-        public function getPlayerProperty(flash.media:String) : Object
+        public function getPlayerProperty(param:String) : Object
         {
-            return _model.getProperty(flash.media);
+            return _model.getProperty(param);
         }// end function
 
         private function parseInitInfo(parseInitInfo:Object) : void

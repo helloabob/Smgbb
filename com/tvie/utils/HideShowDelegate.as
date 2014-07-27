@@ -177,3 +177,5 @@
 
     }
 }
+final class PrivateClass{
+}

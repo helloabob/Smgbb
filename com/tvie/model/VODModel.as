@@ -37,18 +37,18 @@
             return _duration / 1000;
         }// end function
 
-        override protected function play(com.tvie.model:VODModel/loadedLength/get:Object) : void
+        override protected function play(param:Object) : void
         {
-            if (com.tvie.model:VODModel/loadedLength/get["id"] != undefined)
+            if (param["id"] != undefined)
             {
-                _id = int(com.tvie.model:VODModel/loadedLength/get["id"]);
-                if (com.tvie.model:VODModel/loadedLength/get["starttime"] != undefined)
+                _id = int(param["id"]);
+                if (param["starttime"] != undefined)
                 {
-                    _starttime = Math.round(Number(com.tvie.model:VODModel/loadedLength/get["starttime"]));
+                    _starttime = Math.round(Number(param["starttime"]));
                 }
-                if (com.tvie.model:VODModel/loadedLength/get["datarate"] != undefined)
+                if (param["datarate"] != undefined)
                 {
-                    _nominalDataRate = Math.round(Number(com.tvie.model:VODModel/loadedLength/get["datarate"]));
+                    _nominalDataRate = Math.round(Number(param["datarate"]));
                 }
                 CDNProbe();
             }

@@ -22,6 +22,7 @@
     import flash.events.EventDispatcher;
     import flash.events.FullScreenEvent;
     import flash.system.Security;
+	import com.tvie.utils.Comm;
 
     public class UISDK extends Sprite implements externalCall
     {
@@ -107,6 +108,7 @@
 
         private function mountPanels() : void
         {
+			
             var _loc_1:uint = 0;
             while (_loc_1 < _panelArr.length)
             {

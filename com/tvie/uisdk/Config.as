@@ -7,7 +7,7 @@
         private var rect:Object;
         private var params:Object;
 
-        public function Config(playerWidth:Object) : void
+        public function Config(param:Object) : void
         {
             params = new Object();
             rect = {x:0, y:0, width:600, height:480, playerX:0, playerY:0, playerWidth:600, playerHeight:480, playX:0, playY:0, playWidth:600, playHeight:20};
@@ -21,7 +21,7 @@
             params["autostart"] = false;
             params["days"] = 2;
             params["timeOffset"] = 0;
-            extendObject(params, playerWidth);
+            extendObject(params, param);
             var _loc_2:* = /^http:\/\/""^http:\/\//;
             if (String(params["site"]).search(_loc_2) == -1)
             {
@@ -126,12 +126,13 @@
             return;
         }// end function
 
-        public function extendObject(playerWidth:Object, playerWidth:Object) : void
+        public function extendObject(param1:Object, param2:Object) : void
         {
+			params = param1;
             var _loc_3:String = null;
-            for (_loc_3 in playerWidth)
+            for (_loc_3 in param2)
             {
-				params[_loc_3] = playerWidth[_loc_3];
+				params[_loc_3] = param2[_loc_3];
             }
             return;
         }// end function

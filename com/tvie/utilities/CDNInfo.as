@@ -39,12 +39,12 @@
             return _drm;
         }// end function
 
-        public static function createCDNInfo(com.tvie.utilities:CDNInfo:int, com.tvie.utilities:CDNInfo:String, com.tvie.utilities:CDNInfo:Boolean) : CDNInfo
+        public static function createCDNInfo(param1:int, param2:String, param3:Boolean) : CDNInfo
         {
-            var _loc_4:* = new CDNInfo;
-            _loc_4._datarate = com.tvie.utilities:CDNInfo;
-            _loc_4._cdnsite = com.tvie.utilities:CDNInfo;
-            _loc_4._drm = com.tvie.utilities:CDNInfo;
+            var _loc_4:CDNInfo = new CDNInfo;
+            _loc_4._datarate = param1;
+            _loc_4._cdnsite = param2;
+            _loc_4._drm = param3;
             _loc_4._delay = 0;
             return _loc_4;
         }// end function

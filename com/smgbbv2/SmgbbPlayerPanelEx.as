@@ -5,6 +5,7 @@
     import com.tvie.uisdk.*;
     import com.tvie.utilities.*;
     import com.tvie.utils.*;
+	import com.tvie.utils.Comm;
     import flash.display.*;
     import flash.events.*;
 
@@ -37,7 +38,7 @@
             {
                 _loc_3["datarate"] = 1;
             }
-            if (_loc_4 == RequestType.TYPE_LIVE || !tvie_equalObj(_loc_3, _requestObj) || !tvie_equalObj(_requestObj, _loc_3))
+            if (_loc_4 == RequestType.TYPE_LIVE || !(com.tvie.utils.Comm.tvie_equalObj(_loc_3, _requestObj)) || !(com.tvie.utils.Comm.tvie_equalObj(_requestObj, _loc_3)))
             {
                 _requestObj = _loc_3;
                 _timer.reset();
@@ -55,7 +56,7 @@
                 if (_loc_4 == RequestType.TYPE_LIVE)
                 {
                     _loc_2 = UISDK.config.cloneObject(UISDK.config.Params);
-                    _loc_2["starttime"] = tvie_time() + UISDK.config.Params["timeOffset"];
+                    _loc_2["starttime"] = com.tvie.utils.Comm.tvie_time() + UISDK.config.Params["timeOffset"];
                     player.sendPlayerCommand(PlayerCommands.COMMAND_PLAY, _loc_2);
                 }
                 else

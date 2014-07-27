@@ -10,7 +10,7 @@
             return;
         }// end function
 
-        public function applyFX(com.anttikupila.revolt.effects:Effect:BitmapData) : void
+        public function applyFX(param:BitmapData) : void
         {
             trace("applyFX is not defined for " + this);
             return;

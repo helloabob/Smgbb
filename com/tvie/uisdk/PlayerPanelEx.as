@@ -621,7 +621,8 @@
                             }
                             _loc_5 = _loc_5 + 1;
                         }
-                        ++_loc_5 = ++_loc_5 % _loc_3.length;
+                        _loc_5 = ++_loc_5 % _loc_3.length;
+						_loc_5++;
                         if (_pausePending)
                         {
                             player.sendPlayerCommand(PlayerCommands.COMMAND_STARTPAUSE, true);

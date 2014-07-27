@@ -18,26 +18,26 @@
             return;
         }// end function
 
-        public function getLeftChannel(flash.utils:Boolean) : Array
+        public function getLeftChannel(param:Boolean) : Array
         {
-            SoundMixer.computeSpectrum(ba, flash.utils, 0);
+            SoundMixer.computeSpectrum(ba, param, 0);
             return getSection(ba, 256);
         }// end function
 
-        public function getSoundSpectrum(flash.utils:Boolean) : Array
+        public function getSoundSpectrum(param:Boolean) : Array
         {
-            SoundMixer.computeSpectrum(ba, flash.utils, 0);
+            SoundMixer.computeSpectrum(ba, param, 0);
             return getSection(ba, 512);
         }// end function
 
-        private function getSection(flash.utils:ByteArray, flash.utils:uint = 512) : Array
+        private function getSection(param1:ByteArray, param2:uint = 512) : Array
         {
             var _loc_3:* = new Array();
             var _loc_4:uint = 0;
-            while (_loc_4 < flash.utils)
+            while (_loc_4 < param2)
             {
                 
-                _loc_3.push(flash.utils.readFloat());
+                _loc_3.push(param1.readFloat());
                 _loc_4 = _loc_4 + 1;
             }
             return _loc_3;
@@ -80,9 +80,9 @@
             return _loc_3 * 100;
         }// end function
 
-        public function getRightChannel(flash.utils:Boolean) : Array
+        public function getRightChannel(param:Boolean) : Array
         {
-            SoundMixer.computeSpectrum(ba, flash.utils, 0);
+            SoundMixer.computeSpectrum(ba, param, 0);
             ba.position = 1024;
             return getSection(ba, 256);
         }// end function
