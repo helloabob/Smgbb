@@ -91,10 +91,10 @@
             return;
         }// end function
 
-        protected function seekButtonPosition(_playedLine:Number, _playedLine:Number) : void
+        protected function seekButtonPosition(offset:Number, total:Number) : void
         {
-            _playedLine = _playedLine < 0 ? (0) : (_playedLine);
-            _seekSuite.x = _playedLine / _playedLine * _timeLine.width;
+            offset = offset < 0 ? (0) : (offset);
+            _seekSuite.x = offset / total * _timeLine.width;
             _playedLine.width = _seekSuite.x;
             return;
         }// end function
@@ -117,9 +117,9 @@
             return;
         }// end function
 
-        protected function initUI(_playedLine:MovieClip, _playedLine:TextField, _playedLine:TextField) : void
+        protected function initUI(timeBar:MovieClip, playingTime:TextField, durationTime:TextField) : void
         {
-            _timeBar = _playedLine;
+            _timeBar = timeBar;
             _timeLine = _timeBar.timeLine;
             _buffLine = _timeBar.bufferingLine;
             _liveTime = _timeBar.liveTime;
@@ -130,8 +130,8 @@
             _absTime.visible = false;
             _clickLine = _timeBar.clickLine;
             _clickLine.buttonMode = true;
-            _playingTime = _playedLine;
-            _durationTime = _playedLine;
+            _playingTime = playingTime;
+            _durationTime = durationTime;
             return;
         }// end function
 

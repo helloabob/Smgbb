@@ -191,7 +191,7 @@
             {
                 _loc_3["datarate"] = 1;
             }
-            if (_loc_4 == RequestType.TYPE_LIVE || !tvie_equalObj(_loc_3, _requestObj) || !tvie_equalObj(_requestObj, _loc_3))
+            if (_loc_4 == RequestType.TYPE_LIVE || !com.tvie.utils.Comm.tvie_equalObj(_loc_3, _requestObj) || !com.tvie.utils.Comm.tvie_equalObj(_requestObj, _loc_3))
             {
                 _requestObj = _loc_3;
                 _timer.reset();
@@ -374,7 +374,7 @@
                     if (ExternalInterface.available)
                     {
                         htmlpath = ExternalInterface.call("window.location.href.toString");
-                        tvie_tracer("HTML Site is " + htmlpath);
+						com.tvie.utils.Comm.tvie_tracer("HTML Site is " + htmlpath);
                         result = re.exec(htmlpath);
                         if (result == null)
                         {
@@ -389,7 +389,7 @@
                 }
                 catch (e:Error)
                 {
-                    tvie_tracer("Get HTML Site Error" + e.toString());
+					com.tvie.utils.Comm.tvie_tracer("Get HTML Site Error" + e.toString());
                     return false;
                 }
                 isLink;
@@ -413,7 +413,7 @@
             }
             else
             {
-                tvie_tracer("Capabilities.playerType is: StandAlone");
+				com.tvie.utils.Comm.tvie_tracer("Capabilities.playerType is: StandAlone");
                 return true;
             }
         }// end function
@@ -576,7 +576,7 @@
             {
                 _loc_3 = Lang.UNKONW_ERROR;
             }
-            tvie_tracer("core error happened: " + _loc_2 + " onPlayerErrorHandler@PlayerPanelEx");
+			com.tvie.utils.Comm.tvie_tracer("core error happened: " + _loc_2 + " onPlayerErrorHandler@PlayerPanelEx");
             UISDK.eDispather.dispatchEvent(new TVieEvent(UIEvent.UI_SHOW_NOTICE, null));
             UISDK.eDispather.dispatchEvent(new TVieEvent(UIEvent.UI_NOTICE, _loc_3));
             return;
@@ -606,7 +606,7 @@
                         _loc_4 = Number(player.getPlayerProperty(PlayerProperties.VIDEODATARATE));
                         if (_loc_3.length == 1)
                         {
-                            tvie_tracer("only one daterate for this channel, onSwitchDatarateHandler@PlayerPanelEx");
+							com.tvie.utils.Comm.tvie_tracer("only one daterate for this channel, onSwitchDatarateHandler@PlayerPanelEx");
                             UISDK.eDispather.dispatchEvent(new TVieEvent(UIEvent.UI_SHOW_NOTICE, null));
                             UISDK.eDispather.dispatchEvent(new TVieEvent(UIEvent.UI_NOTICE, Lang.DATARATE_INFO));
                             return;
